@@ -1,10 +1,11 @@
 {
-  "name": "angular-schema-form-ui-ace",
+  "name": "angular-schema-form-ui-codemirror",
   "main": [
-    "bootstrap-ui-ace.min.js"
+    "bootstrap-ui-codemirror.min.js"
   ],
   "version": "0.1.0",
   "authors": [
+    "Philipp Bosch <hello@pb.io>",
     "NetworkNT",
     "Steve Hu <stevehu@gmail.com>"
   ],
@@ -18,9 +19,9 @@
     "json",
     "json-schema",
     "schema",
-    "ace",
-    "ui-ace",
-    "angular-schema-form-ui-ace"
+    "codemirror",
+    "ui-codemirror",
+    "angular-schema-form-ui-codemirror"
   ],
   "license": "MIT",
   "ignore": [
@@ -31,8 +32,8 @@
     "coverage"
   ],
   "dependencies": {
-    "ace": ">= 1.1.7",
-    "angular-ui-ace": ">= 0.1.1"
+    "codemirror": "~5.1.0",
+    "angular-ui-codemirror": "~0.2.3"
   },
   "devDependencies": {
     "angular-schema-form": ">= 0.7",

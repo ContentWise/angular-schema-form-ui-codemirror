@@ -7,7 +7,6 @@ var minifyHtml = require('gulp-minify-html');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var streamqueue = require('streamqueue');
-var jscs = require('gulp-jscs');
 
 gulp.task('minify', function() {
   var stream = streamqueue({objectMode: true});
@@ -20,13 +19,13 @@ gulp.task('minify', function() {
                   }))
                   .pipe(templateCache({
                     module: 'schemaForm',
-                    root: 'directives/decorators/bootstrap/ace/'
+                    root: 'directives/decorators/bootstrap/codemirror/'
                   }))
     );
   stream.queue(gulp.src('./src/*.js'));
 
   stream.done()
-        .pipe(concat('bootstrap-ui-ace.min.js'))
+        .pipe(concat('bootstrap-ui-codemirror.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('.'));
 
@@ -38,26 +37,20 @@ gulp.task('non-minified-dist', function() {
               gulp.src('./src/*.html')
                   .pipe(templateCache({
                     module: 'schemaForm',
-                    root: 'directives/decorators/bootstrap/ace/'
+                    root: 'directives/decorators/bootstrap/codemirror/'
                   }))
     );
   stream.queue(gulp.src('./src/*.js'));
 
   stream.done()
-        .pipe(concat('bootstrap-ui-ace.js'))
+        .pipe(concat('bootstrap-ui-codemirror.js'))
         .pipe(gulp.dest('.'));
 
 });
 
-gulp.task('jscs', function() {
-  gulp.src('./src/**/*.js')
-      .pipe(jscs());
-});
-
 gulp.task('default', [
   'minify',
-  'non-minified-dist',
-  'jscs'
+  'non-minified-dist'
 ]);
 
 gulp.task('watch', function() {
