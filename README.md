@@ -1,11 +1,11 @@
-ui-codemirro add-on
-===================
+ui-codemirror add-on
+====================
 
 This ui-codemirror add-on uses as the name implies the ui-codemirror plugin to
-provide a codemirror editor for schema form. [codemirror](http://codemirror.net)
+provide a CodeMirror editor for schema form. [codemirror](http://codemirror.net)
 as well as [ui-codemirror](https://github.com/angular-ui/ui-codemirror) is used.
 
-codemirror is highly customizable and this add-on takes an options object via
+CodeMirror is highly customizable and this add-on takes an options object via
 `codemirrorOptions` in the form. More info below at [Options](#Options).
 
 
@@ -24,7 +24,7 @@ You'll need to load a few additional files to use the editor:
 **Be sure to load this projects files after you load angular schema form**
 
 1. Angular
-2. The [codemirror](http://codemirror.net) source file
+2. The [CodeMirror](http://codemirror.net) source file
 3. The [ui-codemirror](https://github.com/angular-ui/ui-codemirror) source file
 4. **Angular Schema Form**
 
@@ -47,13 +47,13 @@ The codemirror add-on adds a new form type, `codemirror`.
 
 |  Form Type     |   Becomes            |
 |:---------------|:--------------------:|
-|  codemirror    |  a codemirror widget |
+|  codemirror    |  a CodeMirror widget |
 
 
 
 ## Options
 
-The `codemirror` form takes one option, `codemirrorOptions`. This is an object
+The `codemirror` field takes one option, `codemirrorOptions`. This is an object
 with any and all options availible to CodeMirror. A full list of these can be
 found [here](http://codemirror.net/doc/manual.html#config).
 
