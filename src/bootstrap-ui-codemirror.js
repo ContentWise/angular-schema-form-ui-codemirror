@@ -1,6 +1,5 @@
-angular.module('schemaForm').config(
-['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider',
-  function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
+angular.module('schemaForm')
+  .config(['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider', function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
 
     var codemirror = function(name, schema, options) {
       if (schema.type === 'codemirror') {
@@ -15,7 +14,8 @@ angular.module('schemaForm').config(
     schemaFormProvider.defaults.string.unshift(codemirror);
 
     // Add to the bootstrap directive
-    schemaFormDecoratorsProvider.addMapping('bootstrapDecorator', 'codemirror',
+    schemaFormDecoratorsProvider.addMapping('bootstrapDecorator',
+      'codemirror',
       'directives/decorators/bootstrap/codemirror/codemirror.html');
     schemaFormDecoratorsProvider.createDirective('codemirror',
       'directives/decorators/bootstrap/codemirror/codemirror.html');
