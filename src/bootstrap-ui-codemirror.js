@@ -1,22 +1,23 @@
 angular.module('schemaForm')
-  .config(['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider', function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
-
-    var codemirror = function(name, schema, options) {
-      if (schema.type === 'codemirror') {
-        var f = schemaFormProvider.stdFormObj(name, schema, options);
-        f.key  = options.path;
-        f.type = 'codemirror';
-        options.lookup[sfPathProvider.stringify(options.path)] = f;
-        return f;
-      }
-    };
-
-    schemaFormProvider.defaults.string.unshift(codemirror);
-
+  .config(['schemaFormProvider', 'schemaFormDecoratorsProvider', function(schemaFormProvider, schemaFormDecoratorsProvider) {
     // Add to the bootstrap directive
     schemaFormDecoratorsProvider.addMapping('bootstrapDecorator',
       'codemirror',
       'directives/decorators/bootstrap/codemirror/codemirror.html');
     schemaFormDecoratorsProvider.createDirective('codemirror',
       'directives/decorators/bootstrap/codemirror/codemirror.html');
-  }]);
+  }])
+
+  .directive('codemirrorButtons', function() {
+    return {
+      controller: ['$scope', function($scope) {
+        $scope.getCodemirrorOptions = function() {
+          var opts = angular.copy($scope.form.codemirrorOptions);
+          opts.onLoad = function(cm) {
+            $scope.cm = cm;
+          };
+          return opts;
+        };
+      }]
+    };
+  });
