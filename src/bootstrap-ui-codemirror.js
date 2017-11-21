@@ -1,11 +1,13 @@
 angular.module('schemaForm')
-    .config(['schemaFormProvider', 'schemaFormDecoratorsProvider', function (schemaFormProvider, schemaFormDecoratorsProvider) {
-        // Add to the bootstrap directive
-        schemaFormDecoratorsProvider.addMapping('bootstrapDecorator',
-            'codemirror',
-            'directives/decorators/bootstrap/codemirror/codemirror.html');
+    .config(['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfBuilderProvider', function (schemaFormProvider, schemaFormDecoratorsProvider, sfBuilderProvider) {
         schemaFormDecoratorsProvider.createDirective('codemirror',
             'directives/decorators/bootstrap/codemirror/codemirror.html');
+        schemaFormDecoratorsProvider.defineAddOn(
+            'bootstrapDecorator',
+            'codemirror',
+            'directives/decorators/bootstrap/codemirror/codemirror.html',
+            sfBuilderProvider.stdBuilders
+        );
     }])
 
     .directive('codemirrorButtons', function () {
